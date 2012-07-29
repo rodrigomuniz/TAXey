@@ -3,6 +3,7 @@
 <html lang="pt">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TAXey</title>
 
 <link rel="stylesheet" type="text/css" href="assets/btsp/css/bootstrap.min.css">
@@ -18,47 +19,59 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
+
           <a class="brand" href="#">TAXey</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">Início</a></li>
-              <li><a href="#about">Sobre</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
+
         </div>
       </div>
     </div>
 
     <div class="container">
-    	<div class="well">
-    		<p>Você está em</p>
-				<div id="floatingBarsG">
-					<div class="blockG" id="rotateG_01">
-					</div>
-					<div class="blockG" id="rotateG_02">
-					</div>
-					<div class="blockG" id="rotateG_03">
-					</div>
-					<div class="blockG" id="rotateG_04">
-					</div>
-					<div class="blockG" id="rotateG_05">
-					</div>
-					<div class="blockG" id="rotateG_06">
-					</div>
-					<div class="blockG" id="rotateG_07">
-					</div>
-					<div class="blockG" id="rotateG_08">
-					</div>
-				</div>
-    		<strong id="city-name" class="label label-info">Localizando...</strong>
-    	</div>
-      <h1>Você está em: Recif</h1>
-      <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+      <article>
+        <div id="floatingBarsG"> <div class="blockG" id="rotateG_01"> </div> <div class="blockG" id="rotateG_02"> </div> <div class="blockG" id="rotateG_03"> </div> <div class="blockG" id="rotateG_04"> </div> <div class="blockG" id="rotateG_05"> </div> <div class="blockG" id="rotateG_06"> </div> <div class="blockG" id="rotateG_07"> </div> <div class="blockG" id="rotateG_08"> </div> </div>
+      </article>
+
+      <form action="#" class="row">
+        <input type="text" class="disabled span12" value="Localizando..." id="city-name">
+
+        <fieldset class="row">
+          <input type="text" class="input-medium span12" id="end" placeholder="Informe o endereço para onde está indo">
+          <input type="button" class="btn btn-success span12" value="Quanto vai custar?">
+        </fieldset>
+      </form>
+
+      <hr>
+
+    	<div class="well hide" id="city">
+
+      <table class="table table-bordered">
+      <caption><h6>Tarifas para a sua localização</h6></caption>
+      <thead>
+        <tr>
+          <th>Bandeirada</th>
+          <th>Km rodado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="lead" id="taxPrice">
+          R$3,80
+          </td>
+          <td class="lead" id="kmPrice">
+          R$1,85
+          </td>
+        </tr>
+      </tbody>
+      </table>
+
+      <div id="call" class="row">
+        <h6>Chamar</h6>
+        <a href="tel:2121-4242" class="btn btn-info btn-large span11"><i class="icon-arrow-right icon-white pull-left"></i> <strong>Teletaxi</strong> (2121-4242)</a>
+        <a href="tel:2122-0202" class="btn btn-info btn-large span11"><i class="icon-arrow-right icon-white pull-left"></i> <strong>Servitaxi</strong> (2122-0202)</a>
+        <a href="tel:2119-7070" class="btn btn-info btn-large span11"><i class="icon-arrow-right icon-white pull-left"></i> <strong>Coopetaxi</strong> (2119-7070)</a>
+      </div>
+
+    	</div> <!-- local e tarifas -->
 
     </div> <!-- /container -->
 </body>
