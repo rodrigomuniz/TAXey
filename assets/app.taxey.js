@@ -5,7 +5,7 @@ $(document).ready(function() {
     //cria mapa
     var mapcanvas = document.createElement('div');
     mapcanvas.id = 'mapcontainer';
-    mapcanvas.style.height = '100px';
+    mapcanvas.style.height = '160px';
     mapcanvas.style.width = '100%';
     document.querySelector('article').appendChild(mapcanvas);
 

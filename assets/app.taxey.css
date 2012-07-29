@@ -1,4 +1,16 @@
-/*body {padding-top: 50px;}*/
+body {padding: 0;}
+.container {padding: 0 5px}
+#app-name {
+	font-weight: normal;
+	font-size: 20px;
+	position: absolute;
+	width: 100%;
+	color: #fff;
+	text-align: center;
+	background: rgba(0,0,0,0.7);
+	pointer-events:none;
+	z-index: 99999
+}
 #call h6 {text-align: center}
 #mapcontainer,
 #call .btn {margin-bottom: 4px}
@@ -7,6 +19,8 @@
 #floatingBarsG {margin:0 auto;}
 #floatingBarsG {
 	position:absolute;
+	top:80px;
+	left:47%;
 	width:15px;
 	height:19px;
 	margin-right: 5px
