@@ -1,4 +1,5 @@
 <!DOCTYPE HTML>
+<!-- <html lang="pt"> -->
 <html manifest="taxey.appcache" lang="pt">
 <head>
 <meta charset="utf-8">
@@ -22,44 +23,115 @@
       </article>
 
     <div class="container">
-      <form action="#" class="row">
-        <input type="text" class="disabled span12" value="Localizando..." id="city-name">
+      <form id="find" action="#" method="POST" class="row" autocomplete="off">
+        <input type="text" class="disabled span12" value="Localizando..." id="city-name" disabled>
 
         <fieldset class="row">
-          <input type="text" class="input-medium span12" id="end" placeholder="Informe o endereço para onde está indo">
-          <input type="button" class="btn btn-success span12" value="Quanto vai custar?">
+          <input type="text" class="input-medium span12" id="end" placeholder="Informe o endereço para onde está indo" value"Rua Amelia, 451, Recife">
+          <input type="submit" class="btn btn-inverse btn-large span12" value="Quanto vai custar?">
         </fieldset>
       </form>
 
       <hr>
 
-    	<div class="well hide" id="city">
+    	<div class="hide" id="city">
+        <ul class="nav nav-pills">
+            <li class="active">
+            <a href="#tax1" data-toggle="tab">Bandeira 1</a>
+            </li>
+            <li><a href="#tax2" data-toggle="tab">Bandeira 2</a></li>
+        </ul>
+      <div class="tab-content">
+        <div class="tab-pane active fade in" id="tax1">
+            <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Bandeirada</th>
+                <th>Km rodado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="lead" id="taxPrice">
+                R$3,80
+                </td>
+                <td class="lead" id="kmPrice">
+                R$1,85
+                </td>
+              </tr>
+            </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade in" id="tax2">
+            <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Bandeirada</th>
+                <th>Km rodado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="lead" id="taxPrice2">
+                R$3,80
+                </td>
+                <td class="lead" id="kmPrice2">
+                R$2,22
+                </td>
+              </tr>
+            </tbody>
+            </table>
+        </div>
+      </div>
 
-      <table class="table table-bordered">
-      <caption><h6>Tarifas para a sua localização</h6></caption>
-      <thead>
-        <tr>
-          <th>Bandeirada</th>
-          <th>Km rodado</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="lead" id="taxPrice">
-          R$3,80
-          </td>
-          <td class="lead" id="kmPrice">
-          R$1,85
-          </td>
-        </tr>
-      </tbody>
-      </table>
+      <div class="hide" id="found">
+        <ul class="nav nav-pills">
+            <li class="active">
+            <a href="#found1" data-toggle="tab">Bandeira 1</a>
+            </li>
+            <li><a href="#found2" data-toggle="tab">Bandeira 2</a></li>
+        </ul>
+      <div class="tab-content">
+        <div class="tab-pane active fade in" id="found1">
+            <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Aproximadamente</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="lead" id="taxAprox">
+                R$3,80
+                </td>
+              </tr>
+            </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade in" id="found2">
+            <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Aproximadamente</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="lead" id="taxAprox">
+                R$2,85
+                </td>
+              </tr>
+            </tbody>
+            </table>
+        </div>
+      </div>
+      </div>
+
 
       <div id="call" class="row">
         <h6>Chamar</h6>
         <a href="tel:2121-4242" class="btn btn-info btn-large span11"><i class="icon-arrow-right icon-white pull-left"></i> <strong>Teletaxi</strong> (2121-4242)</a>
         <a href="tel:2122-0202" class="btn btn-info btn-large span11"><i class="icon-arrow-right icon-white pull-left"></i> <strong>Servitaxi</strong> (2122-0202)</a>
-        <a href="tel:2119-7070" class="btn btn-info btn-large span11"><i class="icon-arrow-right icon-white pull-left"></i> <strong>Coopetaxi</strong> (2119-7070)</a>
       </div>
 
     	</div> <!-- local e tarifas -->

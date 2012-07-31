@@ -5,16 +5,32 @@ $(document).ready(function() {
     //cria mapa
     var mapcanvas = document.createElement('div');
     mapcanvas.id = 'mapcontainer';
-    mapcanvas.style.height = '160px';
+    mapcanvas.style.height = '140px';
     mapcanvas.style.width = '100%';
     document.querySelector('article').appendChild(mapcanvas);
+    //direction
+    var directionDisplay;
+    var directionsService = new google.maps.DirectionsService();
+
+//consulta estimativa
+$('#find').submit(function() {
+  //pega valor do destino
+  var endTo = $('#end').val();
+  if(endTo){
+    //chama funcao da rota
+    findRoute(endTo);
+  } else {
+    alert('Você precisa informar um endereço para estimar o valor da corrida.')
+  }
+  return false
+});
 
 });
 
 
 var geocoder;
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+  navigator.geolocation.getCurrentPosition(successFunction, errorFunction, {enableHighAccuracy:false, maximumAge:30000, timeout:10000});
 } 
 //pega latitude e longitude;
 function successFunction(position) {
@@ -24,11 +40,17 @@ function successFunction(position) {
 }
 
 function errorFunction(){
-    alert("Não foi possível determinar sua localização");
+    //para a demo, em caso de erro ou timeout, passa as coordenadas da CPRecife
+    //alert("Não foi possível determinar sua localização");
+    var lat = -8.034701;
+    var lng = -34.870455;
+    codeLatLng(lat, lng)
 }
 
   function initialize() {
     geocoder = new google.maps.Geocoder();
+
+    directionsDisplay = new google.maps.DirectionsRenderer();
 
   }
 
@@ -118,13 +140,28 @@ function pinLocal(lat, lng) {
 //adaptado para a conexão da campus que acusa Bogota ou Sao Paulo dependendo de onde estamos conectados
 function cityTax(cityName) {
     var city = cityName;
-    if (city == "Recife" || city == "Sao Paulo" || city == "Bogota") {
+    if (city == "Olinda" || city == "Recife" || city == "Sao Paulo" || city == "Bogota") {
         //mostra preco dependendo da cidade localizada
             // ======== programar modelo de estrutura de dados =====
             
             //mostra tabela e botoes
             $('#city').slideDown('slow');
     } else {
-        alert('Infelizmente os preços e telefones para a sua localização atual ('+city+') ainda não está nos nossos bancos de dados :(');
+        alert('Infelizmente os preços e telefones para a cidade onde você está ('+city+') ainda não está nos nossos bancos de dados :(');
     }
+}
+
+function findRoute(endTo) {
+  var start = $('#city-name').val();
+  var end = document.getElementById('end').value;
+  var request = {
+      origin:start,
+      destination:end,
+      travelMode: google.maps.DirectionsTravelMode.DRIVING
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+    }
+  });
 }
